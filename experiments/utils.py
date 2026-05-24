@@ -28,11 +28,6 @@ from nltk.corpus.reader.wordnet import NOUN, VERB, ADJ, ADV
 stop_words = set(stopwords.words('english'))
 
 
-# from importlib import reload
-# import utils
-# reload(utils)
-
-
 # pobranie i wczytanie danych
 def load_data():
     path = kagglehub.dataset_download("suchintikasarkar/sentiment-analysis-for-mental-health")
@@ -176,6 +171,19 @@ def preprocess_v4(text):
     return ' '.join(tokens)
 
 
+# przycięcie tekstu do max. k znaków
+def truncate_text(text, max_chars):
+    if len(text) <= max_chars:
+        return text
+
+    truncated = text[:max_chars]
+    last_space = truncated.rfind(" ")
+    if last_space == -1:
+        return truncated
+
+    return truncated[:last_space]
+
+
 # eksperyment z różną liczbą cech (max_features) dla TF-IDF (Logistic Regression)
 def max_features(X_train, X_val, y_train, y_val):
     Fs = [500*n for n in range(1, 11)]
@@ -265,7 +273,8 @@ def compare_errors(predictions, y_true):
             if len(union) > 0 else 0
         )
 
-        results[(model_a, model_b)] = {
+        key = tuple(sorted([model_a, model_b]))
+        results[key] = {
             "jaccard": jaccard,
             "shared_errors": sorted(intersection),
             "only_a_errors": sorted(errors_a - errors_b),
