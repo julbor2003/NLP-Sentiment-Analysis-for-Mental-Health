@@ -197,7 +197,7 @@ Macierze pomyłek pokazują, że **wszystkie modele stosunkowo dobrze rozróżni
 * Binary Bigram SVM najlepiej ogranicza liczbę przypadków *Problem* → *Normal*, ale równocześnie najbardziej zwiększa liczbę pomyłek przeciwnych
 * modele SVM generują mniej fałszywych negatywów niż baseline.
 
---
+---
 
 <img src="imgs/length-binary.png" alt="plot_5" width="1000">
 

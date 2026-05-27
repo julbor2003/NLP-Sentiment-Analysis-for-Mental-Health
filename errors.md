@@ -252,11 +252,6 @@ Wszystkie warianty: `BŁĘDNIE`
 - baseline, hierarchical, hierarchical SVM, SVM bigram, hierarchical SVM bigram: `Stress`
 - SVM: `Depression`
 
-svm: Depression
-hierarchical_svm: Stress
-bi_svm: Stress
-hierarchical_bi_svm: Stress
-
 ANALIZA:
 
 Modele błędnie sklasyfikowały tekst głównie jako `Stress`, ponieważ wypowiedź koncentruje się na **stresującej sytuacji interpersonalnej i napięciu emocjonalnym**. Mimo obecności słowa “anxiety”, **dominujący kontekst dotyczy radzenia sobie ze stresem i konfliktami społecznymi**. Mylące mogły być też dla modeli słowa takie jak "trigger", "relax", "music" czy "tea", które mogą być silnie reprezentowane w tekstach powiązanych ze stresem czy depresją (np. w kontekście prób samopomocy czy otrzymywanych rad).
